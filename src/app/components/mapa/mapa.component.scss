@@ -1,0 +1,27 @@
+#mapa {
+  height: calc(100vh - 220px - 80px);
+}
+
+@media (max-width: 991px) {
+  #mapa {
+    height: calc(100vh - 220px - 140px);
+  }
+}
+
+@media (max-width: 768px) {
+  #mapa {
+    height: calc(100vh - 60px - 140px);
+  }
+}
+
+@media (max-width: 768px) {
+  #mapa {
+    height: calc(100vh - 60px);
+  }
+}
+
+@media (min-width: 768px) and (max-height: 600px) {
+  #mapa {
+    height: calc(100vh - 60px);
+  }
+}

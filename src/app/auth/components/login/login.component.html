@@ -1,0 +1,36 @@
+<mat-card class="mat-elevation-z4 login" style="padding-bottom: 150px">
+  <h1 style="text-align: center">Login</h1>
+  <form [formGroup]="loginForm" (ngSubmit)="login()" style="text-align: center">
+    <section>
+      <mat-form-field appearance="fill">
+        <mat-label>Usuari: </mat-label>
+        <input matInput type="text" [formControl]="username" required />
+        <mat-error *ngIf="username.invalid">
+          {{ getUsernameErrorMessage() }}
+        </mat-error>
+      </mat-form-field>
+    </section>
+
+    <section>
+      <mat-form-field appearance="fill">
+        <mat-label>Password: </mat-label>
+        <input matInput type="text" [formControl]="password" required />
+        <mat-error *ngIf="password.invalid">
+          {{ getPasswordErrorMessage() }}
+        </mat-error>
+      </mat-form-field>
+    </section>
+
+    <section style="text-align: center">
+      <button
+        mat-button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="!loginForm.valid"
+      >
+        Login
+      </button>
+    </section>
+  </form>
+</mat-card>

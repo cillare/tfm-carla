@@ -1,0 +1,56 @@
+<div class="home">
+  <div class="home--content container">
+    <section class="home__text">
+      <h1>Seguiment d'ocells rars de Catalunya</h1>
+      <p>
+        La plataforma és el resultat d'un Treball Final de Màster (TFM) del
+        programa de Desenvolupament de Llocs i Aplicacions Web de la UOC.
+        Aquesta iniciativa, que neix dins d'un marc acadèmic, té com a objectiu
+        recopilar i mostrar observacions d'ocells rars a Catalunya. Les dades
+        que se'n mostren són fruit del treball d'ornitòlegs i ornitòlogues
+        voluntàries i han estat cedides pel Comitè Avifaunístic de Catalunya
+        (CAC) de l'Institut Català d'Ornitologia (ICO).
+      </p>
+      <p>
+        L'objectiu del projecte és proporcionar una eina accessible per explorar
+        la presència d'aquestes espècies en el territori català, contribuint al
+        coneixement científic i a la conservació de la biodiversitat
+      </p>
+    </section>
+    <section class="home__form">
+      <mat-card class="home__form__card">
+        <mat-card-header class="home__form__card__header">
+          <mat-card-title>Cerca per espècie</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-form-field class="home__form__card__field">
+            <mat-label>Espècie</mat-label>
+            <input
+              matInput
+              [matAutocomplete]="auto"
+              [formControl]="myControl"
+            />
+            <mat-autocomplete #auto="matAutocomplete">
+              <mat-option
+                *ngFor="let option of filteredOptions | async"
+                [value]="option"
+              >
+                {{ option }}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions>
+          <button
+            mat-flat-button
+            color="accent"
+            class="home__form__card__btn"
+            (click)="redirectToSingleSpecies(myControl.value)"
+          >
+            Cerca
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </section>
+  </div>
+</div>

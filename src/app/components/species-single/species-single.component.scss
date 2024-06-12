@@ -1,0 +1,136 @@
+.single {
+  position: relative;
+  margin-bottom: 100px;
+
+  .single--nav {
+    background-color: #cbd9d7;
+    display: flex;
+    justify-content: space-between;
+
+    .single--nav__selector {
+      padding-top: 22px;
+      display: flex;
+    }
+
+    .single--nav__buttons {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      margin-left: calc(100vw * 200 / 1400);
+
+      button {
+        display: block;
+        padding-inline: 0;
+      }
+    }
+  }
+
+  .single--content {
+    padding-top: 20px;
+
+    .single__section {
+      margin-bottom: 30px;
+    }
+
+    .single__general {
+      .single__general__info,
+      .single__general__info__items,
+      .single__general__info__item {
+        display: flex;
+      }
+
+      .single__general__info__items {
+        width: 60%;
+        justify-content: flex-start;
+
+        .single__general__info__item:first-of-type {
+          margin-right: calc(100vw * 70 / 1440);
+        }
+
+        .single__general__info__item {
+          :first-child div {
+            margin-right: calc(100vw * 20 / 1440);
+            margin-bottom: 15px;
+            font-weight: 800;
+          }
+
+          :nth-child(2) div {
+            margin-bottom: 15px;
+          }
+        }
+      }
+
+      .single__general__info__img {
+        width: 40%;
+        margin-left: 20px;
+        max-height: 273px;
+
+        img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        .spinner-container {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+    }
+
+    .sticky-container {
+      height: auto;
+      width: 100%;
+      max-width: 100%;
+      overflow: auto;
+
+      table {
+        width: 800px;
+      }
+
+      td.mat-column-star {
+        width: 20px;
+        padding-right: 8px;
+      }
+
+      th.mat-column-position,
+      td.mat-column-position {
+        padding-left: 8px;
+      }
+
+      .mat-mdc-table-sticky-border-elem-right {
+        border-left: 1px solid #e0e0e0;
+      }
+
+      .mat-mdc-table-sticky-border-elem-left {
+        border-right: 1px solid #e0e0e0;
+      }
+    }
+
+    .single__evolution {
+      .single__evolution__graph {
+        height: 400px;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .single {
+    .single--nav {
+      .single--nav__buttons {
+        display: none;
+      }
+
+      .single--nav__selector {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+}

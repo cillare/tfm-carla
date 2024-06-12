@@ -1,0 +1,30 @@
+<div class="species">
+  <div class="container">
+    <h1 class="species__title">Espècies</h1>
+
+    <p class="species__text">
+      Tot seguit es mostra un recopilatori de totes les espècies d'ocells rars
+      registrades. Al fer clic es redirigeix a la pàgina individual de cada
+      espècie, que n'aporta més informació.
+    </p>
+  </div>
+
+  <div class="species__cards container">
+    <mat-card
+      class="mat-elevation-z4 species__card"
+      *ngFor="let species of speciesList$ | async"
+      (click)="redirectToSpecies(species)"
+    >
+      <mat-card-header>
+        <mat-card-title class="species__card__title">{{
+          species
+        }}</mat-card-title>
+      </mat-card-header>
+      <img
+        mat-card-lg-image
+        [src]="speciesImages[species]"
+        alt="Imatge de {{ species }}"
+      />
+    </mat-card>
+  </div>
+</div>

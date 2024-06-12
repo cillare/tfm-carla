@@ -1,0 +1,30 @@
+.login {
+  height: calc(100vh - 100px - 120px);
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .login {
+    height: calc(100vh - 60px);
+  }
+}
+
+@media (max-width: 375px) {
+  .login {
+    height: auto;
+  }
+}
+
+@media (min-width: 567px) and (max-width: 768px) and (max-height: 600px) {
+  .login {
+    height: unset;
+    padding-bottom: 60px;
+  }
+}
+
+@media (min-width: 844px) and (max-height: 430px) {
+  .login {
+    height: unset;
+    padding-bottom: 60px;
+  }
+}

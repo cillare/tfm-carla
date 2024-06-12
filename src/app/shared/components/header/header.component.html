@@ -1,47 +1,91 @@
 <mat-toolbar class="header-primary">
-  <a class="logo-btn">
+  <div class="logo-btn" (click)="home()">
     <img
       class="logo"
       src="assets/logo_ocells_rars.svg"
       alt="Logo de Seguiment d'ocells rars de Catalunya"
     />
-  </a>
+  </div>
   <span class="spacer"></span>
-  <button mat-button>Inici</button>
-  <button mat-button>Explora</button>
-  <button mat-button>Espècies</button>
-  <button mat-button>Mapa</button>
+  <button mat-button (click)="home()" *ngIf="!isLoggedIn()">Inici</button>
+  <button mat-button (click)="explore()" *ngIf="!isLoggedIn()">Explora</button>
+  <button mat-button (click)="species()" *ngIf="!isLoggedIn()">Espècies</button>
+  <button mat-button (click)="mapa()" *ngIf="!isLoggedIn()">Mapa</button>
+  <button mat-button *ngIf="isLoggedIn()" (click)="logout()">Logout</button>
 </mat-toolbar>
 
-<mat-toolbar color="primary" class="header-secondary">
+<mat-toolbar color="primary" class="header-secondary" *ngIf="!isLoggedIn()">
   <div>
-    <div>2024</div>
-    <div>
-      <span>Nº espècies registrades</span><span class="spacer"></span
-      ><span>33</span>
+    <div style="font-weight: 800">{{ lastYearWithObservations }}</div>
+    <div class="header__data">
+      <div>Nº espècies registrades</div>
+      <div>{{ totalUniqueSpeciesLastYear }}</div>
     </div>
-    <div><span>Nº registres</span><span>76</span></div>
+    <div class="header__data">
+      <div>Nº registres</div>
+      <div>{{ totalObservationsLastYear }}</div>
+    </div>
   </div>
 
   <div>
-    <div>Històric</div>
-    <div><span>Nº espècies registrades</span><span>33</span></div>
-    <div><span>Nº registres</span><span>76</span></div>
+    <div style="font-weight: 800">Històric</div>
+    <div class="header__data">
+      <div>Nº espècies registrades</div>
+      <div>{{ totalUniqueSpeciesAll }}</div>
+    </div>
+    <div class="header__data">
+      <div>Nº registres</div>
+      <div>{{ totalObservationsAll }}</div>
+    </div>
   </div>
 
   <span class="spacer"></span>
 
   <div>
-    <div>Històric</div>
-    <div><span>Nº espècies registrades</span><span>33</span></div>
-    <div><span>Nº registres</span><span>76</span></div>
+    <div style="font-weight: 800">Última espècie registrada</div>
+    <div class="header__data">
+      <div
+        class="header__data__lastSpecies"
+        (click)="redirectToSingleSpecies(lastSpecies)"
+      >
+        {{ lastSpecies }}
+        <mat-icon>chevron_right</mat-icon>
+      </div>
+    </div>
+    <div class="header__data">
+      <div>{{ lastFinalDate }}</div>
+    </div>
   </div>
 </mat-toolbar>
 
-<div class="home-img">
-  <img
-    class="logo"
-    src="assets/foto-portada-ex.jpeg"
-    alt="Logo de Seguiment d'ocells rars de Catalunya"
-  />
-</div>
+<mat-toolbar color="primary" class="header-mobile">
+  <mat-toolbar-row>
+    <div class="logo-btn" (click)="home()">
+      <img
+        class="logo"
+        src="assets/logo_ocells_rars-blanc.svg"
+        alt="Logo de Seguiment d'ocells rars de Catalunya"
+      />
+    </div>
+    <span class="spacer"></span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="menu button">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item *ngIf="!isLoggedIn()" (click)="home()">
+        Inici
+      </button>
+      <button mat-menu-item *ngIf="!isLoggedIn()" (click)="explore()">
+        Explora
+      </button>
+      <button mat-menu-item *ngIf="!isLoggedIn()" (click)="species()">
+        Espècies
+      </button>
+      <button mat-menu-item *ngIf="!isLoggedIn()" (click)="mapa()">Mapa</button>
+      <button mat-menu-item *ngIf="isLoggedIn()" (click)="logout()">
+        Logout
+      </button>
+    </mat-menu>
+  </mat-toolbar-row>
+</mat-toolbar>
