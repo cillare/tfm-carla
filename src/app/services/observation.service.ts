@@ -2,6 +2,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
+import { environment } from '../../environments/environment.prod';
 import { AuthService } from '../auth/services/auth.service';
 import { ObservationDTO } from '../observation.dto';
 
@@ -9,7 +10,9 @@ import { ObservationDTO } from '../observation.dto';
   providedIn: 'root',
 })
 export class ObservationService {
-  private apiUrl = 'http://localhost:8000/api/observations';
+  //private apiUrl = 'http://localhost:8000/api/observations';
+
+  private apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient, private authService: AuthService) {}
 
