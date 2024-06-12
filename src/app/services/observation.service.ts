@@ -12,7 +12,7 @@ import { ObservationDTO } from '../observation.dto';
 export class ObservationService {
   //private apiUrl = 'http://localhost:8000/api/observations';
 
-  private apiUrl = environment.apiUrl;
+  private apiUrl = `${environment.apiUrl}/observations`;
 
   constructor(private http: HttpClient, private authService: AuthService) {}
 
