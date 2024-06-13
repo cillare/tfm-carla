@@ -132,5 +132,24 @@
         justify-content: center;
       }
     }
+
+    .single--content {
+      .single__general {
+        .single__general__info {
+          flex-direction: column;
+
+          .single__general__info__items {
+            width: 100%;
+            justify-content: center;
+          }
+
+          .single__general__info__img {
+            width: auto;
+            height: 100%;
+            max-height: unset;
+          }
+        }
+      }
+    }
   }
 }
