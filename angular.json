@@ -39,6 +39,11 @@
                 "glob": "**/*",
                 "input": "node_modules/leaflet/dist/images/",
                 "output": "/assets/"
+              },
+              {
+                "glob": "_redirects",
+                "input": "./",
+                "output": "./"
               }
             ],
             "styles": [
