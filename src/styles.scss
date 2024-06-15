@@ -1,38 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
 
-/* $tfm-palette: (
-    50 : #eaf0ef,
-    100 : #cbd9d7,
-    200 : #a8c0bd,
-    300 : #85a7a2,
-    400 : #6b948e,
-    500 : #51817a,
-    600 : #4a7972,
-    700 : #406e67,
-    800 : #37645d,
-    900 : #27514a,
-    A100 : #99ffed,
-    A200 : #66ffe4,
-    A400 : #33ffdb,
-    A700 : #1affd7,
-    contrast: (
-        50 : #000000,
-        100 : #000000,
-        200 : #000000,
-        300 : #000000,
-        400 : #000000,
-        500 : #ffffff,
-        600 : #ffffff,
-        700 : #ffffff,
-        800 : #ffffff,
-        900 : #ffffff,
-        A100 : #000000,
-        A200 : #000000,
-        A400 : #000000,
-        A700 : #000000,
-    )
-);*/
-
 @use "@angular/material" as mat;
 
 @include mat.core();
